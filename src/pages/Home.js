@@ -17,12 +17,12 @@ const Home = observer(() => {
     
     return (
         <div>
-            HOME Page
+            <h1 className="hHome">Your palette of gradients</h1>
             <div className="gradientAtHomePage">
                 {activeGradients.gradientStore.map(item => <ItemForGradient key={item.id} i={item}/>)}
             </div>
-            <div>
-                <button onClick={() => newGr() }>Create New Gradient</button>
+            <div className="btnHome">
+                <button onClick={() => newGr() } className="btnPl">Create New Gradient</button>
             </div>
         </div>
     )

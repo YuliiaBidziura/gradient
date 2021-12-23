@@ -26,12 +26,17 @@ const NewGradient = observer(() => {
     const arrOfValidValues = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
 
     function validRessult() {
-        document.getElementById('btnAddGradient').style.opacity = 1
-        document.getElementById('btnAddGradient').style.cursor = 'pointer'
+        setTimeout(() => {
+            document.getElementById('btnAddGradient').style.opacity = 1
+            document.getElementById('btnAddGradient').style.cursor = 'pointer'
+        }, 0)
+        
     }
     function notValidRessult() {
-        document.getElementById('btnAddGradient').style.opacity = 0.6
-        document.getElementById('btnAddGradient').style.cursor = 'not-allowed'
+        setTimeout(() => {
+            document.getElementById('btnAddGradient').style.opacity = 0.6
+            document.getElementById('btnAddGradient').style.cursor = 'not-allowed'
+        }, 0)
     }
 
     function checkInputs(str, str2) {
@@ -91,7 +96,7 @@ const NewGradient = observer(() => {
                         className="btnPl"
                         style={{width: 200}}
                         id="btnAddGradient"
-                        onClick={() => {click(input1, input2)}}
+                        onClick={() => click(input1, input2)}
                     >
                         ADD GRADIENT
                     </button>
