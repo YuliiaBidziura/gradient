@@ -1,7 +1,7 @@
-import { HOME, NEW_ROUTE, EDIT_ROUTE } from "./utils/consts"
-import Home from './pages/Home'
-import NewGradient from './pages/NewGradient'
-import EditGradient from './pages/EditGradient'
+import { HOME, NEW_ROUTE, EDIT_ROUTE } from './utils/consts';
+import Home from './pages/Home';
+import NewGradient from './pages/NewGradient';
+import EditGradient from './pages/EditGradient';
 
 export const publicRoutes = [
     {

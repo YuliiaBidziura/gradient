@@ -1,45 +1,44 @@
-import React, { useState, useContext} from "react";
-import { observer } from "mobx-react-lite";
+import React, { useState, useContext } from 'react';
+import { observer } from 'mobx-react-lite';
 import { v4 as uuid } from 'uuid';
-import { useHistory } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 import { Form } from 'react-bootstrap';
-import { Context } from "../index.js";
-import { HOME } from "../utils/consts.js";
-import '../index.css'
+import { Context } from '../index.js';
+import { HOME } from '../utils/consts.js';
+import '../index.css';
 
 const NewGradient = observer(() => {
     const [input1, setInput1] = useState('')
     const [input2, setInput2] = useState('')
-    const { activeGradients } = useContext(Context);
-    const history = useHistory();
-    let s1 = null;
-    let s2 = null;
-    function click(elem1, elem2) {
+    const { activeGradients } = useContext(Context)
+    const history = useHistory()
+    let s1 = null
+    let s2 = null
+
+    const click = (elem1, elem2) => {
         if(s1 && s2) {
             let newGradient = {id: uuid(), hex1: elem1, hex2: elem2}
             activeGradients.setGradientToGradientStore(newGradient)
-            console.log(activeGradients.gradientStore)
-            history.push(HOME);
+            history.push(HOME)
         }
     }
 
     const arrOfValidValues = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
 
-    function validRessult() {
+    const validRessult = () => {
         setTimeout(() => {
             document.getElementById('btnAddGradient').style.opacity = 1
             document.getElementById('btnAddGradient').style.cursor = 'pointer'
         }, 0)
         
     }
-    function notValidRessult() {
+    const notValidRessult = () => {
         setTimeout(() => {
             document.getElementById('btnAddGradient').style.opacity = 0.6
             document.getElementById('btnAddGradient').style.cursor = 'not-allowed'
         }, 0)
     }
-
-    function checkInputs(str, str2) {
+    const checkInputs = (str, str2) => {
         if(str && str2){
             if(str[0] === '#' && str2[0] === '#') {
                 for(let i = 1; i < str.length; i++) {
@@ -50,7 +49,7 @@ const NewGradient = observer(() => {
                                     validRessult()
                                     s1 = str;
                                     s2 = str2;
-                                    document.getElementById('bckgrndGrdnt').style.background = `linear-gradient(45deg, ${str}, ${str2})`;
+                                    document.getElementById('bckgrndGrdnt').style.background = `linear-gradient(45deg, ${ str }, ${ str2 })`;
                                 } else if(str2.length < 4 || str2.length > 7 || str2.length === 5 || str2.length === 6) {
                                     notValidRessult()
                                 }
@@ -68,7 +67,6 @@ const NewGradient = observer(() => {
     
     checkInputs(input1.toUpperCase(), input2.toUpperCase())
     
-
     return (
         <div className="newGradient">
            <div className="jumbotron">
@@ -103,7 +101,7 @@ const NewGradient = observer(() => {
                 </div>
             </div>
         </div>
-    )
+    );
 });
 
 export default NewGradient;
