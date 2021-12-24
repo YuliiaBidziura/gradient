@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/gradient/static/css/main.46c42be6.css",
+    "main.js": "/gradient/static/js/main.75da53cb.js",
+    "index.html": "/gradient/index.html",
+    "main.46c42be6.css.map": "/gradient/static/css/main.46c42be6.css.map",
+    "main.75da53cb.js.map": "/gradient/static/js/main.75da53cb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.46c42be6.css",
+    "static/js/main.75da53cb.js"
+  ]
+}
